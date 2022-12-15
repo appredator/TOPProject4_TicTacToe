@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+   height: 100%;
+   font-family: "Roboto", Sans-Serif;
+  
+} 
+.heading{
+  border: black solid 2px;
+  height: 3.8rem;
+  display: grid;
+  text-align: center;
+
+}
+
+#ticTacToe{
+/* Targets Heading of Page */
+}
+
+#playerStatusContainer{
+display: grid;
+
+}
+
+#playerOneDisplay{
+  grid-column-start: 0;
+  grid-column-end: 3;
+  text-align: center;
+}
+
+
+
+#playerTwoDisplay{
+  grid-column-start: 8;
+  grid-column-end: 11;
+  text-align: center;
+}
+
+
+
+
+.box-ctn{
+  /* height: 100%; */
+  width: 100%;
+    
+  }
+  
+  .box{
+    border: black solid 2px;
+    height: 8.4rem;
+    
+  }
+  
+  .box:hover{
+    background: grey;
+    opacity: 10;
+    
+  }
