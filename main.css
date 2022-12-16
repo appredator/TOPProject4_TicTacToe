@@ -39,22 +39,72 @@ display: grid;
   text-align: center;
 }
 
+.container{
+  border: black solid 2px;
+  display: grid;
+  grid-template-areas: 
+  "grid-box0 grid-box1 grid-box2"
+  "grid-box3 grid-box4 grid-box5"
+  "grid-box6 grid-box7 grid-box8";
+}
+.grid-box0{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box0";
+}
+.grid-box1{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box1";
+}
+.grid-box2{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box2";
+}
+.grid-box3{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box5";
+}
+.grid-box4{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box4";
+}
+.grid-box5{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box5";
+}
+.grid-box6{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box6";
+}
+.grid-box7{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box7";
+}
+.grid-box8{
+  border: black solid 2px;
+  height: 5.8rem;
+  text-align: center;
+  grid-area: "grid-box8";
+}
 
 
 
-.box-ctn{
-  /* height: 100%; */
-  width: 100%;
-    
-  }
-  
-  .box{
-    border: black solid 2px;
-    height: 8.4rem;
-    
-  }
-  
-  .box:hover{
+  .grid-box:hover{
     background: grey;
     opacity: 10;
     
