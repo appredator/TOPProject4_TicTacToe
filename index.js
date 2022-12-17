@@ -1,6 +1,16 @@
 let gameBoardModule = (function() {
-let gameBoard =     
-["X","O"];
+  
+  let createPlayer = (playerName, mark, turn) =>{
+    this.playerName = playerName;
+    this.mark = mark;
+    this.turn = turn;
+    let getPlayerName = () => {alert("The player name is " + this.playerName)}
+  return {playerName, mark, turn, getPlayerName};
+  };
+
+  const player1 = createPlayer("Lance", "X", true)
+  
+  const player2 = createPlayer("Billy", "O", false)
 
 const winCombos = [
   [0,1,2],
@@ -15,68 +25,103 @@ const winCombos = [
 
 let winner = null;
 
-// Turn counter
 let turns = 0;
-return {gameBoard};
 
+let board =     
+[];
 
-})();
+let winnerCombo = [];
 
+let playerTurn = (function() {
+  const box = document.querySelectorAll(".box");
+  box.forEach( box => {
+    box.addEventListener("click", e => {
+      //Condition for when a box is clicked and it is Player 1's turn.
+      if(player1.turn == true && gameboard.winner == null && e.target.textContent == ""){
+        
+        board[e.target.id] = player1.mark;
 
+        box[e.target.id] = player1.mark;
 
-let displayControllerModule = (function() {
-const makeMove = document.querySelectorAll(".game-board-button");
+        document.querySelector(e.target.id) = player1.mark;
 
-let index = 0
-makeMove.forEach(makeMoves =>{
-makeMoves.dataset.linkedButton = index;
-makeMoves.addEventListener("click", renderArrayToScreen)
+        player1.turn = false;
 
-  function renderArrayToScreen() {
-    const gridBoxes = document.querySelectorAll(".grid-box")
-    let index = 0;
-    gridBoxes.forEach(gridBox => 
-      {
-        gridBox.dataset.linkedButton = index;
-        if(gridBox.getAttribute('data-linked-button') == makeMoves.getAttribute("data-linked-button")){
-          gridBox.textContent = gameBoardModule.gameBoard[gameBoardModule.gameBoard.length - 1];
-          console.log("show me my makeMoves linked button value...", makeMoves.dataset.linkedButton)
-          console.log("show me my gridBox linked button value...", gridBox.dataset.linkedButton)
-        }
-        index++;
-      })
-  }
-  index++;
-})
+        player2.turn = true;
 
+        console.log(board);
+      }
+            //Condition for when a box is clicked and it is Player 1's turn.
+      else if(player2.turn == true && gameboard.winner == null && e.target.textContent == ""){
+        
+        board[e.target.id] = player2.mark;
 
-  return {}
-})();
+        box.textContent = player2.mark;
 
+        player1.turn = true;
 
-  let createPlayer = (playerName, playerNumber, assignedXO) =>{
-    this.playerName = playerName;
-    this.playerNumber = playerName;
-    this.assignedXO = assignedXO
-    let getPlayerName = () => {alert("The player name is " + this.playerName)}
-  return {playerName, playerNumber, assignedXO};
-  };
-  
+        player2.turn = false;
 
-
-  let renderArrayToScreenModule = (function(){
-    const gridBoxes = document.querySelectorAll(".grid-box")
-    gridBoxes[0].innerHTML = gameBoardModule.gameBoard;
-
-    return {}
+        console.log(board);
+      }
+      else{
+        console.log('You hit the else of playerTurn');
+      }
+      // winCheck();
+    })
   })();
 
-  const player1 = createPlayer("Lance", "X", true)
-  
-  const player2 = createPlayer("Billy", "O", false)
+return {playerTurn};
+//Escape gameboard object
+})
+ })();
 
-  renderArrayToScreenModule;
-  
+// Non-Private Approach for testing. Currently doesnt work because it cant access player1.properties
+ let playerTurn2 = (function() {
+  const box = document.querySelectorAll(".box");
+  box.forEach( box => {
+    box.addEventListener("click", e => {
+      //Condition for when a box is clicked and it is Player 1's turn.
+      if(player1.turn == true && gameboard.winner == null && e.target.textContent == ""){
+        
+        board[e.target.id] = player1.mark;
+
+        box[e.target.id] = player1.mark;
+
+        document.querySelector(e.target.id) = player1.mark;
+
+        player1.turn = false;
+
+        player2.turn = true;
+
+        console.log(board);
+      }
+            //Condition for when a box is clicked and it is Player 1's turn.
+      else if(player2.turn == true && gameboard.winner == null && e.target.textContent == ""){
+        
+        board[e.target.id] = player2.mark;
+
+        box.textContent = player2.mark;
+
+        player1.turn = true;
+
+        player2.turn = false;
+
+        console.log(board);
+      }
+      else{
+        console.log('You hit the else of playerTurn');
+      }
+      // winCheck();
+    })
+  })
+  })();
+
+
+
+
+
+
 
 
 
